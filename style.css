@@ -11,7 +11,7 @@ body {
   height: 100%;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: var(--secondary-color);
-  padding: 0.4rem;
+  padding: 1rem;
 }
 
 ul {
@@ -23,9 +23,8 @@ ul {
 .page-wrapper {
   display: grid;
   grid-template-areas:
-    'a a a'
-    'b b b'
-    'c c c';
+    'a a a a'
+    'b c c c';
   gap: 1rem;
 
   background-color: var(--background-color);
@@ -57,19 +56,11 @@ ul {
     flex-direction: column;
     justify-content: space-between;
     gap: 2rem;
-
-    &> :nth-child(1) {
-      padding-right: 4rem;
-    }
-
-    &> :nth-child(2) {
-      align-self: flex-end;
-      padding-left: 4rem;
-    }
+    padding-right: 4rem
   }
 
   & .preamble {
-    padding: 1rem 0 0 4rem;
+    padding: 1rem 0 0 8rem;
     display: grid;
     grid-template-rows: min-content 1fr;
     grid-template-areas:
@@ -102,13 +93,139 @@ ul {
 
 .page-wrapper .supporting {
   grid-area: c;
+  display: grid;
+  grid-template-areas:
+    'z a a'
+    'b c c'
+    'd e e';
+
+  gap: 1rem;
+
+  & footer {
+    grid-area: a;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  & .explanation {
+    grid-area: b;
+  }
+
+  & .participation {
+    grid-area: c;
+    display: grid;
+    grid-template-rows: repeat(3, min-content);
+    grid-template-areas:
+      'a a'
+      'b c'
+      'd d';
+    column-gap: 3rem;
+    padding-right: 22rem;
+
+    & p {
+      margin: 0;
+      padding: 0;
+    }
+
+    & h3 {
+      grid-area: a;
+    }
+
+    & :nth-child(2) {
+      grid-area: b;
+    }
+
+    & :nth-child(3) {
+      grid-area: c;
+    }
+
+    & :nth-child(4) {
+      grid-area: d;
+      padding-top: 3rem;
+    }
+  }
+
+  & .benefits {
+    grid-area: d;
+    text-align: right;
+  }
+
+  & .requirements {
+    grid-area: e;
+  }
 }
 
 .page-wrapper .sidebar {
   grid-area: b;
+  display: flex;
+  flex-direction: column;
 
   & .wrapper {
+    flex: 1;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+
+    & .design-selection {
+      & ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 4rem;
+        row-gap: 2rem;
+        padding-right: 8rem;
+      }
+
+      & li {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1px;
+
+        &::before,
+        &::after {
+          content: "";
+          flex: 1;
+          height: 1px;
+          background-color: var(--primary-color);
+        }
+
+        &::before {
+          order: -1;
+        }
+
+        &::after {
+          order: 1;
+        }
+
+        & .design-name {
+          order: -2;
+          flex-basis: 100%;
+          text-align: center;
+        }
+
+        & .designer-name {
+          order: 2;
+          flex-basis: 100%;
+          text-align: center;
+        }
+      }
+    }
+
+    & .design-archives {
+      & ul {
+        display: flex;
+        gap: 1rem;
+      }
+    }
+
+    & .zen-resources {
+      & ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
   }
 }
