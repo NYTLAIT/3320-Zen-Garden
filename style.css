@@ -100,6 +100,12 @@ ul {
       padding: 1rem 0.4rem;
       background: var(--primary-color);
     }
+
+    & abbr {
+      color: var(--complementary-color);
+    }
+
+
   }
 
   & .summary {
@@ -262,7 +268,7 @@ ul {
 
         &::before,
         &::after {
-          content: "";
+          content: '';
           flex: 1;
           height: 1px;
           background-color: var(--primary-color);
